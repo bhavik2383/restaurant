@@ -21,4 +21,4 @@ Tipical System user flow: ![Restaurant System Guest User](images/Restaurent-orde
 
 
 ### Service interaction desgin
-Tipical System user flow: ![Service interaction design](images/service-interaction.png)
+![Service interaction design](images/service-interaction.png)
