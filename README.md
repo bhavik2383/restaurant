@@ -13,8 +13,12 @@ There are two kind of users
 2) Guest User 
 
 ### Exsiting Restaurent User
-Tipical user flow: ![Restaurant System](images/Restaurent-order-process-existing-user.png)
+Tipical Existing user flow: ![Restaurant System Existing User](images/Restaurent-order-process-existing-user.png)
 
 
 ### Guest User
-Tipical user flow: ![Restaurant System](images/Restaurent-order-process-guest-user.png)
+Tipical System user flow: ![Restaurant System Guest User](images/Restaurent-order-process-guest-user.png)
+
+
+### Service interaction desgin
+Tipical System user flow: ![Service interaction design](images/service-interaction.png)
