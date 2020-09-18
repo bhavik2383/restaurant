@@ -8,7 +8,7 @@ There are two kind of users
 2) Guest User 
  
 We will consider this flow for Guest User for this excercise.
-Tipical user flow: ![Restaurant System](/Restaurent-order-process.png)
+Tipical user flow: ![Restaurant System](images/Restaurent-order-process.png)
 
 
 
