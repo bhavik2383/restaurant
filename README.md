@@ -6,24 +6,19 @@ ___
 ## Dine-in Process:
 User interaction journey look like for Dine-in: ![Restaurant System Existing User](images/Dine-in.png)
 
-Assumption: All the existing API which I have listed below are capable to support dine-in options.
-
-## After Pandemic:
-After pandemic restaurant can offer two other options:
-1) Order pickup
-2) Order Delivery
-
-To accommodate the above options we can provide addition above two options to select the delivery method. Update restaurant web application to allow place order online as well by using below mention apis.
+Assumption: Restaurent is not offering online orders.
 
 ___
-## Propose solution for online orders:
+## Propose solution After Pandemic:
 
-As soon as user visit the restaurant web application user can login to their account or place an order as guest user. 
-There are two kind of users
-1) Restaurant User
-2) Guest User 
+Below Two changes can make the restaurant a more viable business during the Pandemic.
+
+1) Add two delivery method within restaurant. Order pickup and Order Delivery. 
+2) Enhance the restaurant web application to place order online which can offer Order pickup and Order Delivery methods.
+
+It can be enabled by adding new attribute "deliveryMethod" in order request object while placing order. Rest of the flow should be the same. Based on deliveryMethod restaurent worker can deliver the order.
 ____
-### Existing Restaurant User Flow
+### Application User Flow
 ![Restaurant System Existing User](images/Restaurent-order-process-existing-user.png)
 ____
 ### Guest User Flow
@@ -31,7 +26,6 @@ ____
 ____
 ### Service interaction design
 ![Service interaction design](images/service-interaction.png)
-
 ____
 ### Service API information
 ![Service API information](images/apis.png)
