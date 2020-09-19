@@ -11,26 +11,40 @@ import com.example.restaurant.models.Menu;
  * @author Bhavik
  *
  */
-public class MenuService {
+public interface MenuService {
 
-	public List<Menu> getAllMenu() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	/**
+	 * Method retrives all menus.
+	 * @return
+	 */
+	public List<Menu> getAllMenu();
 
-	public Menu getManu(String menuId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	/**
+	 * Method retrieves specific menu details.
+	 * @param menuId
+	 * @return
+	 */
+	public Menu getManuDetails(String menuId);
 
-	public Menu updateMenu(Menu menu) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	/**
+	 * Method update the specific menu based on menuId.
+	 * @param menuId 
+	 * @param menu
+	 * @return
+	 */
+	public Menu updateMenu(String menuId, Menu menu);
 
-	public void deleteMenu(String menuId) {
-		// TODO Auto-generated method stub
-	
-	}
+	/**
+	 * Method delete specific menu based on menuId.
+	 * @param menuId
+	 */
+	public void deleteMenu(String menuId);
+
+	/**
+	 * Method Create new menu.
+	 * @param menu
+	 * @return
+	 */
+	public Menu createMenu(Menu menu);
 
 }

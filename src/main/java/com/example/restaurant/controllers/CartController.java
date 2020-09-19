@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.restaurant.models.Cart;
 import com.example.restaurant.models.Item;
 import com.example.restaurant.services.CartService;
+import com.example.restaurant.utils.Constants;
 
 @RequestMapping("/restaurant")
 @RestController
@@ -23,35 +24,30 @@ public class CartController {
 	@Autowired
 	private CartService cartService;
 
-	@RequestMapping(path = "/cart/${cartId}/items/{itemId}", method = RequestMethod.POST)
-	public ResponseEntity<Cart>  addItemToCart(@PathParam(value = "cartId") String cartId,
-			@PathParam(value = "itemId") String itemId) {
-		return ResponseEntity.status(HttpStatus.OK).body(cartService.addItemToCart(cartId, itemId));
+	@RequestMapping(path = "/carts", method = RequestMethod.POST)
+	public ResponseEntity<Cart> createCart() {
+		Cart cart = cartService.createCart();
+		return ResponseEntity.status(HttpStatus.CREATED).header(Constants.LOCATION_HEADER, "/carts/" + cart.getCartId()).body(cart);
+		
 	}
 
-	@RequestMapping(path = "/cart/${cartId}/items", method = RequestMethod.POST)
-	public ResponseEntity<Cart>  addMultipleItemsToCart(@PathParam(value = "cartId") String cartId, List<Item> items) {
-		return ResponseEntity.status(HttpStatus.OK).body(cartService.addMultipleItemsToCart(cartId, items));
+	@RequestMapping(path = "/carts/${cartId}/items", method = RequestMethod.POST)
+	public ResponseEntity<Cart> addItemsToCart(@PathParam(value = "cartId") String cartId, List<Item> items) {
+		return ResponseEntity.status(HttpStatus.OK).body(cartService.addItemsToCart(cartId, items));
 	}
 
-	@RequestMapping(path = "/cart/${cartId}/items/{itemId}", method = RequestMethod.POST)
-	public ResponseEntity<Cart>  removeItemFromCart(@PathParam(value = "cartId") String cartId,
-			@PathParam(value = "itemId") String itemId) {
-		return ResponseEntity.status(HttpStatus.OK).body(cartService.removeItemFromCart(cartId, itemId));
-	}
-
-	@RequestMapping(path = "/cart/${cartId}/items/{itemId}", method = RequestMethod.POST)
-	public ResponseEntity<Cart>  removeMultipleItemFromCart(@PathParam(value = "cartId") String cartId, List<Item> items) {
-		return ResponseEntity.status(HttpStatus.OK).body(cartService.removeMultipleItemsFromCart(cartId, items));
+	@RequestMapping(path = "/carts/${cartId}/items", method = RequestMethod.DELETE)
+	public ResponseEntity<Cart> removeItemsFromCart(@PathParam(value = "cartId") String cartId, List<Item> items) {
+		return ResponseEntity.status(HttpStatus.OK).body(cartService.removeItemsFromCart(cartId, items));
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(path = "/cart/${cartId}", method = RequestMethod.POST)
+	@RequestMapping(path = "/carts/${cartId}", method = RequestMethod.DELETE)
 	public void removeAllItemsFromCart(@PathParam(value = "cartId") String cartId) {
 		cartService.removeAllItemsFromCart(cartId);
 	}
-	
-	@RequestMapping(path = "/cart/${cartId}", method = RequestMethod.POST)
+
+	@RequestMapping(path = "/carts/${cartId}", method = RequestMethod.GET)
 	public ResponseEntity<Cart> getCartDetails(@PathParam(value = "cartId") String cartId) {
 		return ResponseEntity.status(HttpStatus.OK).body(cartService.getCartDetails(cartId));
 	}

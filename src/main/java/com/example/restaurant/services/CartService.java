@@ -12,38 +12,42 @@ import com.example.restaurant.models.Item;
  * @author Bhavik
  *
  */
-public class CartService {
+public interface CartService {
 
-	public Cart addItemToCart(String cartId, String itemId) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Method removes all items from the cart
+	 * @param cartId
+	 * @return
+	 */
+	public Cart removeAllItemsFromCart(String cartId);
 
-	}
+	/**
+	 * Method adds new items into the cart
+	 * @param cartId
+	 * @param items
+	 * @return
+	 */
+	public Cart addItemsToCart(String cartId, List<Item> items);
 
-	public Cart removeItemFromCart(String cartId, String itemId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	/**
+	 * Method removes items from the cart
+	 * @param cartId
+	 * @param items
+	 * @return
+	 */
+	public Cart removeItemsFromCart(String cartId, List<Item> items);
 
-	public Cart removeAllItemsFromCart(String cartId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	/**
+	 * Method retrieves the cart information
+	 * @param cartId
+	 * @return
+	 */
+	public Cart getCartDetails(String cartId);
 
-	public Cart addMultipleItemsToCart(String cartId, List<Item> items) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Cart removeMultipleItemsFromCart(String cartId, List<Item> items) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Cart getCartDetails(String cartId) {
-		return null;
-		
-	}
-
+	/**
+	 * Method empty the cart
+	 * @return
+	 */
+	public Cart createCart();
 
 }

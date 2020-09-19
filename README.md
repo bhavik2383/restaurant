@@ -20,11 +20,7 @@ ____
 ### Service interaction design
 ![Service interaction design](images/service-interaction.png)
 
-
+____
 ### Service API information
-
-##### Authentication Service
-| API Name | API Description | Endpoint | HTTP Method |
-| Authentication | API is used to authenticate user | /restaurant/users/authenticate | POST |
-
+![Service API information](images/apis.png)
 

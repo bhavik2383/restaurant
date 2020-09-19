@@ -7,14 +7,13 @@ import com.example.restaurant.models.AuthenticationRequest;
 import com.example.restaurant.models.AuthenticationResponse;
 
 /**
- * @author Bhavik
- *
+ * @author Bhavik Defines method for user authentication
  */
-public class AuthenticationService {
-
-	public AuthenticationResponse authenticate(AuthenticationRequest request) {
-		// TODO Auto-generated method stub
-		return new AuthenticationResponse();
-	}
-
+public interface AuthenticationService {
+	/**
+	 * Method performs user authentication
+	 * @param request
+	 * @return
+	 */
+	public AuthenticationResponse authenticate(AuthenticationRequest request);
 }

@@ -23,23 +23,28 @@ public class MenuController {
 	@Autowired
 	private MenuService menuService;
 
+	@RequestMapping(path = "/menus", method = RequestMethod.POST)
+	public ResponseEntity<Menu> createMenu(@RequestBody Menu menu) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(menuService.createMenu(menu));
+	}
+
 	@RequestMapping(path = "/menus", method = RequestMethod.GET)
 	public ResponseEntity<List<Menu>> getAllManu() {
 		return ResponseEntity.status(HttpStatus.OK).body(menuService.getAllMenu());
 	}
-	
+
 	@RequestMapping(path = "/menus/${menuId}", method = RequestMethod.GET)
-	public ResponseEntity<Menu> getManu(@PathParam(value = "menuId") String menuId) {
-		return ResponseEntity.status(HttpStatus.OK).body(menuService.getManu(menuId));
+	public ResponseEntity<Menu> getManuDetails(@PathParam(value = "menuId") String menuId) {
+		return ResponseEntity.status(HttpStatus.OK).body(menuService.getManuDetails(menuId));
 	}
-	
-	@RequestMapping(path = "/menu/${menuId}", method = RequestMethod.POST)
+
+	@RequestMapping(path = "/menus/${menuId}", method = RequestMethod.PUT)
 	public ResponseEntity<Menu> updateMenu(@PathParam(value = "menuId") String menuId, @RequestBody Menu menu) {
-		return ResponseEntity.status(HttpStatus.OK).body(menuService.updateMenu(menu));	
+		return ResponseEntity.status(HttpStatus.OK).body(menuService.updateMenu(menuId, menu));
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(path = "/menu/${menuId}", method = RequestMethod.DELETE)
+	@RequestMapping(path = "/menus/${menuId}", method = RequestMethod.DELETE)
 	public void deleteMenu(@PathParam(value = "menuId") String menuId) {
 		menuService.deleteMenu(menuId);
 	}
